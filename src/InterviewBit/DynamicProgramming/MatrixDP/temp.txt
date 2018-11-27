@@ -1,0 +1,56 @@
+public int maximalRectangle(ArrayList<ArrayList<Integer>> A) {
+        if(A==null || A.size()==0)
+        return 0;
+        int[] memo = new int[A.get(0).size()];
+        int[] prevMemo = new int[A.get(0).size()];
+        int maxArea = 0, area = 0;
+
+        for(int i = 0; i < A.size(); i++){
+            for(int j = 0; j < A.get(0).size(); j++){
+                if(i==0)
+                memo[j] = A.get(i).get(j);
+                else if(A.get(i).get(j) == 1){
+                    memo[j] = prevMemo[j] + 1;
+                }
+            }
+
+            area = maxAreaUnderHistogram(memo);
+            maxArea = Math.max(maxArea, area);
+            prevMemo = Arrays.copyOf(memo, memo.length);
+            Arrays.fill(memo, 0);
+        }
+
+        return maxArea;
+
+    }
+
+    private static int maxAreaUnderHistogram(int[] memo){
+        int area = 0, maxArea = 0;
+        Stack<Integer> stack = new Stack<>();
+            int i;
+        for(i =0; i < memo.length; i++){
+            if(stack.empty() || memo[i] >= memo[stack.peek()])
+            stack.push(i);
+            else{
+
+                while(!stack.empty() && memo[i] < memo[stack.peek()]){
+                    int topIndex = stack.pop();
+                    int height = memo[topIndex];
+                    int width = stack.empty() ? i : i - 1 - stack.peek();
+                    area = height * width;
+                    maxArea = Math.max(maxArea, area);
+                }
+            }
+        }
+
+
+        while(!stack.empty()){
+            int topIndex = stack.pop();
+                    int height = memo[topIndex];
+                    int width = stack.empty() ? i : i - 1 - stack.peek();
+                    area = height * width;
+                    maxArea = Math.max(maxArea, area);
+                }
+
+      return maxArea;
+    }
