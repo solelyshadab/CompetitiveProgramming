@@ -34,9 +34,9 @@ public class QuickSort {
             count += r-l;
 
             int p = arr[pIndex];
-            int x = arr[pIndex];
+            int temp = arr[pIndex];
             arr[pIndex] = arr[l];
-            arr[l] = x;
+            arr[l] = temp;
             int i = l+1;
             for(int j = l+1; j <=r; j++){
                 if(arr[j]< p) {

@@ -1,6 +1,8 @@
 package CourseEra.Month1;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 public class GraphMinCut {
@@ -102,10 +104,9 @@ public class GraphMinCut {
 
             scanner.close();
 
-        } catch (Exception e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
 

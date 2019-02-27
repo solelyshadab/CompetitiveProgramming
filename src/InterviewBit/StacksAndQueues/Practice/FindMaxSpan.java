@@ -1,8 +1,6 @@
 package InterviewBit.StacksAndQueues.Practice;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Stack;
+import java.util.*;
 
 public class FindMaxSpan {
     public static void main(String[] args){
@@ -15,6 +13,7 @@ public class FindMaxSpan {
     // 6 3 4 5 2
     // 1 1 2 3 1
     public ArrayList<Integer> solution(ArrayList<Integer> A){
+
         ArrayList<Integer> ansList = new ArrayList<>();
         Stack<Integer> stack = new Stack<>();
         int p =0;

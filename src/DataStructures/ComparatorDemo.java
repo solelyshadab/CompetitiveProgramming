@@ -10,7 +10,7 @@ public class ComparatorDemo {
     public void demo(Person person){
 
         PriorityQueue<Person> pq  = new PriorityQueue<>(Comparator.comparing(Person :: getAge).
-                thenComparing( Comparator.comparing(Person:: getName)));
+                thenComparing( Comparator.comparing( p -> p.name)));
     }
 
      class Person{

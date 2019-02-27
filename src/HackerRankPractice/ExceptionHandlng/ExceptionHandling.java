@@ -31,8 +31,8 @@ public class ExceptionHandling {
                 int ans = myCalculator.power(n, p);
                 System.out.println(ans);
             }
-            catch (Exception e) {
-                System.out.println(e.getMessage());
+            catch (NegativeException e) {
+                System.out.println(e);
             }
         }
         in.close();

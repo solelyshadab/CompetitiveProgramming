@@ -72,7 +72,6 @@ public class ValidNumber {
         return gotNum ? 1 : 0;
     }
 
-
     // Solution 2: google answer
     public int isNumber(final String A) {
 
@@ -113,5 +112,10 @@ public class ValidNumber {
         if(dot > 1 || e > 1) return 0;
 
         return 1;
+    }
+
+    //Solution 3: Interviewbit answer
+    public int isNumber1(final String a) {
+        return (a.matches("\\s*[\\-\\+]?([0-9]*\\.?)?[0-9]+(e[\\-\\+]?[0-9]+)?\\s*")) ? 1 : 0;
     }
 }

@@ -49,9 +49,11 @@ public class QuickSortPractice {
             int pIndex = new Random().nextInt(r - l + 1) + l;
 
             int p = arr[pIndex];
+
             int temp = arr[pIndex];
             arr[pIndex] = arr[l];
             arr[l] = temp;
+
             int i = l + 1;
             for (int j = l + 1; j <= r; j++) {
                 if (arr[j] < p) {

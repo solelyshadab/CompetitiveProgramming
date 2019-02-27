@@ -72,6 +72,7 @@ public class PartitioningList {
 
     //Solution2: Interviewbit solution...
     public ListNode partition2(ListNode A, int B) {
+
         if(A == null) return null;
         ListNode head = new ListNode(0);
         ListNode secondHead = new ListNode(0);

@@ -11,13 +11,13 @@ public class FindMissingNumberInSortedArray {
     public int solve(ArrayList<Integer> A){
         int mid;
         int l = 0; int r = A.size()-1;
-        while(l<r){
+        while(l<=r){
             mid = (l+r) /2;
 
             if((A.get(mid) - mid) == 1)
                 l = mid+1;
             else
-                r = mid;
+                r = mid-1;
         }
 
         return A.get(l)-1;

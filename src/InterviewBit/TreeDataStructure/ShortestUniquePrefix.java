@@ -36,9 +36,11 @@ public class ShortestUniquePrefix {
         TrieNode pCrawl = root;
         int i =0;
         int index;
+
         while(i < key.length() ){
             index = key.charAt(i) - 'a';
             ans.append(key.charAt(i));
+
             pCrawl = pCrawl.children[index];
             if(pCrawl.freq ==1)
                 break;

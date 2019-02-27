@@ -22,9 +22,9 @@ public class LongestSubstringWithRepeat {
         }
 
         for(int i =0; i < A.length(); i++){
-            int index = arr[A.charAt(i)];
+            int value = arr[A.charAt(i)];
 
-            if(index == -1 || index < i - curr_length ){
+            if(value == -1 || value < i - curr_length ){
                 curr_length++;
             }else
             {
@@ -32,7 +32,7 @@ public class LongestSubstringWithRepeat {
                     max_length = curr_length;
                 }
 
-                curr_length = i - index;
+                curr_length = i - value;
             }
 
             arr[A.charAt(i)] = i;
@@ -46,7 +46,7 @@ public class LongestSubstringWithRepeat {
     }
     //This solution also works
     public static int lengthOfLongestSubstringSolution(String a) {
-        HashSet<Character> set = new HashSet<Character>();
+        HashSet<Character> set = new HashSet<>();
         int maxLength = Integer.MIN_VALUE;
         int length = 0;
         for(int i = 0; i < a.length(); i++){

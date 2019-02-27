@@ -13,6 +13,7 @@ public class RedundantBraces {
     public int checkRedundantBrackets(String A){
         A = A.trim();
         Stack<Character> stack = new Stack<>();
+
         for(int i = 0; i < A.length(); i++){
             char ch = A.charAt(i);
             if(ch != ')'){

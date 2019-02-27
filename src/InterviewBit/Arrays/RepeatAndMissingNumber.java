@@ -19,12 +19,12 @@ public class RepeatAndMissingNumber {
 
 
     // InterviewBit Solution
-    public ArrayList<Integer> repeatedNumber(final List<Integer> a) {
-        int arraySize = a.size();
+    public ArrayList<Integer> repeatedNumber(final List<Integer> A) {
+        int arraySize = A.size();
         long sumOfNumbers = getSumOfNumbers(arraySize);
         long sumOfSquares = getSumOfSquares(arraySize);
-        long differenceNumber =  getDifferenceofNumbers(a,sumOfNumbers);
-        long differenceSquare = getDifferenceofSquares(a,sumOfSquares);
+        long differenceNumber =  getDifferenceofNumbers(A,sumOfNumbers);
+        long differenceSquare = getDifferenceofSquares(A,sumOfSquares);
         long sumNumber =  differenceSquare/differenceNumber;
         int repeatedNumber = (int)((sumNumber+differenceNumber)/2);
         int missingNumber = (int)(sumNumber-repeatedNumber);
@@ -35,10 +35,10 @@ public class RepeatAndMissingNumber {
     }
 
     private long getDifferenceofNumbers(List<Integer> a,long sumOfNumbers){
-        long sum = sumOfNumbers*-1;
-        for(Integer number:a){
+        long sum = sumOfNumbers * -1;
+        for(Integer number: a){
             long num = (long)number;
-            sum+=num;;
+            sum+=num;
         }
         return sum;
     }
@@ -155,5 +155,39 @@ public class RepeatAndMissingNumber {
             return ansList;
 
         }
+
+
+
+    public void rotate(ArrayList<ArrayList<Integer>> a) {
+        int n = a.size();
+        int m = a.get(0).size();
+        if(n ==1)
+            return;
+
+        //First transpose
+        for(int i = 0 ; i < n ; i++ ){
+            for(int j = i ; j < m ; j++){
+                //int temp = arr[y][z];
+                int temp = a.get(i).get(j);
+                //arr[y][z] = arr[z][y];
+                int temp1 = a.get(j).get(i);
+                a.get(i).set(j, temp1);
+                //arr[z][y] = temp;
+                a.get(j).set(i, temp);
+            }
+        }
+        // Now reverse each row
+        for(int j = 0; j < m/2 ; j++ ){
+            for(int i  = 0; i < n ; i++){
+                //int temp = arr[z][y];
+                int temp = a.get(i).get(j);
+                //arr[z][y] = arr[z][i-1-y];
+                int temp1 = a.get(i).get(n-1-j);
+                a.get(i).set(j, temp1);
+                //arr[z][i-1-y] = temp;
+                a.get(i).set(n-1-j, temp);
+            }
+        }
+    }
     }
 

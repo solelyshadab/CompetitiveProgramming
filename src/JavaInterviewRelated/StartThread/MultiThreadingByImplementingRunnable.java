@@ -1,11 +1,11 @@
-package JavaInterviewRelated;
+package JavaInterviewRelated.StartThread;
 
-public class MultiThreadingByExtendingThreadClass extends Thread {
+public class MultiThreadingByImplementingRunnable implements Runnable {
     public static void main(String[] args) throws InterruptedException {
         int n = 8; // Number of threads
         for (int i=0; i<8; i++)
         {
-            MultiThreadingByExtendingThreadClass thread = new MultiThreadingByExtendingThreadClass();
+            Thread thread = new Thread(new MultiThreadingByImplementingRunnable());
             thread.start();
             Thread.sleep(1000);
         }
@@ -20,4 +20,5 @@ public class MultiThreadingByExtendingThreadClass extends Thread {
             System.out.println("Exception occured is " + e);
         }
     }
+
 }
