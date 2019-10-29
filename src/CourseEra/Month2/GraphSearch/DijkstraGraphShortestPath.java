@@ -108,6 +108,7 @@ public class DijkstraGraphShortestPath {
 
     static void addEdgeSize(Graph graph,int vertice, int edge, int size)
     {
+
         graph.edgeSizeMap[vertice].put(edge, size);
     }
 

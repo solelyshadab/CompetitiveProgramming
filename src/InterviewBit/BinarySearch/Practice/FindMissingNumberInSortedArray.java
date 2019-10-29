@@ -4,7 +4,7 @@ import java.util.*;
 public class FindMissingNumberInSortedArray {
     public static void main(String[] args){
         FindMissingNumberInSortedArray a = new FindMissingNumberInSortedArray();
-        ArrayList<Integer> A = new ArrayList<>(Arrays.asList(1,2,3,4,5,6));
+        ArrayList<Integer> A = new ArrayList<>(Arrays.asList(1,2,3,5,6));
         System.out.println(a.solve(A));
     }
 

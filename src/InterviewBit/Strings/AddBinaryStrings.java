@@ -3,7 +3,7 @@ package InterviewBit.Strings;
 public class AddBinaryStrings {
     public static void main(String[] args){
         AddBinaryStrings a = new AddBinaryStrings();
-        System.out.println(a.solve("100", "11"));
+        System.out.println(addBinary("100", "11"));
     }
 
     public String solve(String A, String B){
@@ -47,5 +47,41 @@ public class AddBinaryStrings {
         }
         String[] arr = {A,B};
         return arr;
+    }
+
+
+    //Geeks solution
+    static String addBinary(String A, String B)
+    {
+
+        // Initialize result
+        String result = "";
+
+        // Initialize digit sum
+        int s = 0;
+
+        // Travers both strings starting
+        // from last characters
+        int i = A.length() - 1, j = B.length() - 1;
+        while (i >= 0 || j >= 0 || s == 1)
+        {
+
+            // Comput sum of last
+            // digits and carry
+            s += ((i >= 0)? A.charAt(i) - '0': 0);
+            s += ((j >= 0)? B.charAt(j) - '0': 0);
+
+            // If current digit sum is
+            // 1 or 3, add 1 to result
+            result += (char)(s % 2 + '0');
+
+            // Compute carry
+            s /= 2;
+
+            // Move to next digits
+            i--; j--;
+        }
+
+        return result;
     }
 }

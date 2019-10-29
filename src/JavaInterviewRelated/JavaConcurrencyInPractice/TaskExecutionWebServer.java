@@ -5,13 +5,15 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class TaskExecutionWebServer {
     private static int NTHREADS = 100;
     private static final Executor exec = Executors.newFixedThreadPool(NTHREADS);
 
-
     public static void main(String[] args) throws IOException {
+
         ServerSocket socket = new ServerSocket(80);
         while (true) {
             final Socket connection = socket.accept();

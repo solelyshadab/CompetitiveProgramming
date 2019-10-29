@@ -69,7 +69,6 @@ public class TreeTraversalUsingStack {
         Stack<TreeNode> stack1 = new Stack<>();
         Stack<TreeNode> stack2 = new Stack<>();
 
-        TreeNode node = A;
         if(A == null)
             return ansList;
 
